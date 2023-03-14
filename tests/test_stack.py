@@ -15,3 +15,14 @@ class TestStack(unittest.TestCase):
         st.push('second')
         st.push('third')
         self.assertIs(st.top.data, "third")
+
+    def test_stack_pop(self):
+        st = stack.Stack()
+        st.push('first')
+        node_1 = st.top
+        st.push('second')
+        node_2 = st.top
+        self.assertIs(st.pop(), node_2.data)
+        self.assertIs(st.pop(), node_1.data)
+
+
