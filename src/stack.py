@@ -27,6 +27,9 @@ class Stack:
         node = Node(data, self.top)
         self.top = node
 
+    def __str__(self):
+        return f'{Stack.__name__} ({self.top.data})'
+
     def pop(self):
         """
         Метод для удаления элемента с вершины стека и его возвращения
