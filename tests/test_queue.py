@@ -20,3 +20,12 @@ class TestQueue(unittest.TestCase):
         qu.enqueue('third')
         self.assertIs(qu.tail.data, "third")
         self.assertIsInstance(qu.tail.next_node, NoneType)
+
+    def test_stack_dequeue(self):
+        qu = Queue()
+        qu.enqueue('first')
+        self.assertEqual(qu.head.data, 'first')
+        qu.dequeue()
+        self.assertIsInstance(qu.head, NoneType)
+        with self.assertRaises(AttributeError):
+            qu.head.data
