@@ -1,5 +1,6 @@
 class Node:
     """Класс для узла односвязного списка"""
+
     def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = next_node
@@ -7,6 +8,7 @@ class Node:
 
 class LinkedList:
     """Класс для односвязного списка"""
+
     def __init__(self):
         self.head = None
         self.next_node = None
@@ -43,3 +45,25 @@ class LinkedList:
 
         ll_string += 'None'
         return f'{ll_string}'
+
+    def to_list(self) -> list:
+        """Возвращает список с данными,
+        содержащимися в односвязном списке `LinkedList`"""
+        data_list = []
+        node = self.head
+        while node:
+            data_list.append(node.data)
+            node = node.next_node
+        return data_list
+
+    def get_data_by_id(self, data) -> dict:
+        """Возвращает первый найденный в `LinkedList` словарь
+        с ключом 'id', значение которого равно переданному в метод значению."""
+        node = self.head
+        for node.data in self.to_list():
+            try:
+                if data == node.data['id']:
+                    return node.data
+
+            except TypeError:
+                print('Данные не являются словарем или в словаре нет id')

@@ -29,3 +29,20 @@ class TestLinkedList(unittest.TestCase):
         new_llist.insert_at_end({'index': 'second'})
         new_llist.insert_at_end({'index': 'last'})
         self.assertEqual(new_llist.__str__().split(" -> ")[0], "{'index': 'first'}")
+
+    def test_to_list(self):
+        new_llist = LinkedList()
+        new_llist.insert_at_end({'index': 'first'})
+        new_llist.insert_at_end({'index': 'second'})
+        data_list = new_llist.to_list()
+        self.assertEqual(data_list[0], {'index': 'first'})
+
+    def test_get_data(self):
+        new_llist = LinkedList()
+        new_llist.insert_beginning({'id': "1"})
+        data = new_llist.get_data_by_id(1)
+        self.assertIsNone(data)
+        new_llist.insert_at_end({'id': 2})
+        data = new_llist.get_data_by_id(2)
+        self.assertEqual(data, {'id': 2})
+
